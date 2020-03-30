@@ -19,7 +19,9 @@ const Issue = (props) => {
   <Section className="issueBox">
     {statusIcon}
     <a href={link} target="_blank" rel="noopener noreferrer">{title}</a>
-    {labelInfo}
+    <div className="labelBox">
+     {labelInfo}
+    </div>
     <p>#{number} Opened by <a href={userGit} rel="noopener noreferrer">{user}</a> <img src={userImage} alt="user prifile pic"/> </p>
     <Markdown className="bodyText" escapeHtml={false} source={body} />
   </Section>
