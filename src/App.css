@@ -24,6 +24,13 @@ img {
 .label {
   padding: 0vh 2vh;
   width: fit-content;
+  height:fit-content;
+  margin-right: 1vh;
+}
+
+.labelBox {
+  margin-top: 1vh;
+  display: flex;
 }
 
 section.section.issueBox {
