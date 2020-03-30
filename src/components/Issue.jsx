@@ -1,10 +1,11 @@
 /* eslint-disable no-unused-vars */
 import React from 'react';
 import {Icon, Container, Section} from 'bloomer';
+import Markdown from 'react-markdown';
 
 const Issue = (props) => {
   console.log(props);
-  const { title, link, number, user, status, userImage, labels, userGit } = props;
+  const { title, link, number, user, status, userImage, labels, userGit, body } = props;
   const statusIcon = status === "open" ? <Icon isSize="small" className="fas fa-exclamation-circle"/> : <Icon>{status}</Icon>;
   const labelInfo = !!labels ? labels.map( item => {
     const color = {
@@ -20,6 +21,7 @@ const Issue = (props) => {
     <a href={link} target="_blank" rel="noopener noreferrer">{title}</a>
     {labelInfo}
     <p>#{number} Opened by <a href={userGit} rel="noopener noreferrer">{user}</a> <img src={userImage} alt="user prifile pic"/> </p>
+    <p className="bodyText"><Markdown source={body} /></p>
   </Section>
   
   )
