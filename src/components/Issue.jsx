@@ -18,7 +18,7 @@ const Issue = (props) => {
   <Section className="issueBox">
     {statusIcon}
     <a href={link} target="_blank" rel="noopener noreferrer">{title}</a>
-    <p>{labelInfo}</p>
+    {labelInfo}
     <p>{number} Opened by <a href={userGit} rel="noopener noreferrer">{user}</a> <img src={userImage} alt="user prifile pic"/> </p>
   </Section>
   
