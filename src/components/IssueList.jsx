@@ -35,7 +35,8 @@ class IssueList extends Component {
        userGit={item.user.html_url}
        number={item.number} 
        user={item.user.login} 
-       status={item.state} 
+       status={item.state}
+       body={item.body}
        userImage={item.user.avatar_url}/> 
       }) : <p>Have a tissue for your issue.</p>;
     
