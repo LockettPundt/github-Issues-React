@@ -29,7 +29,8 @@ class IssueList extends Component {
        return <Issue 
        title={item.title}
        labels={item.labels}
-       link={item.html_url} 
+       link={item.html_url}
+       userGit={item.user.html_url}
        number={item.number} 
        user={item.user.login} 
        status={item.state} 
