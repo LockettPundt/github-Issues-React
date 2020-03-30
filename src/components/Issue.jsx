@@ -1,7 +1,7 @@
 /* eslint-disable no-unused-vars */
 import React from 'react';
 import {Icon, Container, Section} from 'bloomer';
-import Markdown from 'react-markdown';
+import Markdown from 'react-markdown/with-html';
 
 const Issue = (props) => {
   console.log(props);
@@ -21,7 +21,7 @@ const Issue = (props) => {
     <a href={link} target="_blank" rel="noopener noreferrer">{title}</a>
     {labelInfo}
     <p>#{number} Opened by <a href={userGit} rel="noopener noreferrer">{user}</a> <img src={userImage} alt="user prifile pic"/> </p>
-    <Markdown className="bodyText" source={body} />
+    <Markdown className="bodyText" escapeHtml={false} source={body} />
   </Section>
   
   )
