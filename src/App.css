@@ -28,4 +28,9 @@ img {
 
 section.section.issueBox {
   padding: 1vh;
+  margin: 1vh;
+}
+
+.bodyText {
+  font-size: 1.4vh;;
 }
