@@ -1,7 +1,8 @@
 /* eslint-disable no-unused-vars */
 
 import React, { Component } from 'react';
-import Issue from './Issue'
+import Issue from './Issue';
+import { Section } from 'bloomer';
 
 class IssueList extends Component {
   constructor(props) {
@@ -26,7 +27,8 @@ class IssueList extends Component {
   render() {
     const { issueInfo } = this.state;
     const issues = !!issueInfo ? issueInfo.map( (item, index) => {
-       return <Issue 
+       return <Issue
+       key={index}
        title={item.title}
        labels={item.labels}
        link={item.html_url}
@@ -38,9 +40,9 @@ class IssueList extends Component {
       }) : <p>Have a tissue for your issue.</p>;
     
     return (
-      <div>
+      <Section className="issueList">
         {issues}
-      </div>
+      </Section>
     );
   }
   
