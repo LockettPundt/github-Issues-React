@@ -44,7 +44,10 @@ class IssueList extends Component {
             {item.number}
             {' '}
             Opened by
-            <a href={item.user.html_url} rel="noopener noreferrer">{item.user.name}</a>
+            <a href={item.user.html_url} rel="noopener noreferrer">
+              {' '}
+              {item.user.login}
+            </a>
             {' '}
             <img src={item.user.avatar_url} alt="user prifile pic" />
             {' '}
