@@ -2,13 +2,19 @@
 
 import React, { Component } from 'react';
 import Issue from './Issue';
-import { Section } from 'bloomer';
+import { Section, Icon } from 'bloomer';
 
 class IssueList extends Component {
   constructor(props) {
     super(props);
     this.state = {
       issueInfo: [],
+      status: '',
+      title: '',
+      userLink: '',
+      userImage: '',
+      userName: '',
+      labels: '',
     };
     
   };
@@ -24,21 +30,42 @@ class IssueList extends Component {
   }
   
   
+  // key={index}
+  //      title={item.title}
+  //      labels={item.labels}
+  //      link={item.html_url}
+  //      userGit={item.user.html_url}
+  //      number={item.number} 
+  //      user={item.user.login} 
+  //      status={item.state}
+  //      body={item.body}
+  //      userImage={item.user.avatar_url}/>
+  //     }) : <p>Have a tissue for your is
+  
+  
   render() {
     const { issueInfo } = this.state;
     const issues = !!issueInfo ? issueInfo.map( (item, index) => {
-       return <Issue
-       key={index}
-       title={item.title}
-       labels={item.labels}
-       link={item.html_url}
-       userGit={item.user.html_url}
-       number={item.number} 
-       user={item.user.login} 
-       status={item.state}
-       body={item.body}
-       userImage={item.user.avatar_url}/> 
-      }) : <p>Have a tissue for your issue.</p>;
+      const statusIcon = <Icon isSize="small" className="fas fa-exclamation-circle"/>
+      const labelInfo = !!item.labels ? item.labels.map( label => {
+        const color = {
+          backgroundColor: `#${label.color}`,
+          color: 'white',
+        }
+        return <div className="label" style={color}>{label.name}</div>})
+         : '';
+         
+      const link = `/issues/${item.number}`
+       return <Section className="issueBox">
+                {statusIcon}
+                <a href={link}>{item.title}</a>
+                {labelInfo}
+                <p>#{item.number} Opened by <a href={item.user.html_url} rel="noopener noreferrer">{item.user.name}</a> <img src={item.user.avatar_url} alt="user prifile pic"/> </p>
+              </Section>      
+    }) : '';
+    
+    
+    
     
     return (
       <Section className="issueList">
