@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-filename-extension */
 import React from 'react';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import './App.css';
@@ -10,8 +11,8 @@ function App() {
   return (
     <div className="App">
       <Router>
-        <Route path='/' exact component={IssueList}/>
-        <Route path='/issues/:issue_number?' exact component={IssueDetail}/>
+        <Route path="/" exact component={IssueList} />
+        <Route path="/issues/:issue_number?" exact component={IssueDetail} />
       </Router>
     </div>
   );
