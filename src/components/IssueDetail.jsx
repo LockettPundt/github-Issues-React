@@ -31,10 +31,11 @@ const IssueDetail = (props) => {
     : '';
   const userInfo = issueData.user
     ? (
-      <div>
+      <>
         <a href={issueData.user.html_url}>{issueData.user.login}</a>
+        {' '}
         <img src={issueData.user.avatar_url} alt="user profile pic" />
-      </div>
+      </>
     ) : '';
   return (
     <Section className="issueBox">
@@ -48,6 +49,7 @@ const IssueDetail = (props) => {
         {issueData.number}
         {' '}
         Opened by
+        {' '}
         {userInfo}
       </div>
       <Markdown className="bodyText" source={issueData.body} escapeHtml={false} />
